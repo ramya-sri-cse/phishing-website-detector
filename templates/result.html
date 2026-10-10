@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detection Result</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f6ff;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .result-box {
+            background: white;
+            width: 500px;
+            margin: auto;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            margin-bottom: 25px;
+        }
+
+        .url {
+            word-break: break-all;
+            color: #555;
+        }
+
+        .result {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 25px 0;
+        }
+
+        .phishing {
+            color: red;
+        }
+
+        .legitimate {
+            color: green;
+        }
+
+        a {
+            text-decoration: none;
+            padding: 12px 20px;
+            background: #2563eb;
+            color: white;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="result-box">
+
+        <h1>🔍 Website Analysis Result</h1>
+
+        <p class="url">
+            <strong>URL:</strong> {{ url }}
+        </p>
+
+        {% if "Phishing" in result %}
+            <p class="result phishing">⚠️ {{ result }}</p>
+        {% elif "Legitimate" in result %}
+            <p class="result legitimate">✅ {{ result }}</p>
+        {% else %}
+            <p class="result">{{ result }}</p>
+        {% endif %}
+
+        <br><br>
+
+        <a href="/">Check Another Website</a>
+
+    </div>
+
+</body>
+</html>
